@@ -1,0 +1,18 @@
+[
+    {
+        "Name":"ファイア",
+        "WeakType":"ハイドロ"
+    },
+    {
+        "Name":"リーフ",
+        "WeakType":"ファイア"
+    },
+    {
+        "Name":"ハイドロ",
+        "WeakType":"リーフ"
+    },
+    {
+        "Name":"レギュラー",
+        "WeakType":null
+    }
+]
