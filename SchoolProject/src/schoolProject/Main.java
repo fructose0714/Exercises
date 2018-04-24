@@ -49,7 +49,7 @@ public class Main {
 		// 実行してみるとわかりますが、umiとhonoは、自身の役職を自己紹介で宣言します。
 		// それはStudentの持つ自己紹介のメソッドselfIntroduction()を、SubCaptainでオーバーライドしているからであり、
 		// 副部長が「私は副部長です！」と言うのに対して、部長は「私は部長です！」と言うようになっているのは、
-		// CaptainはSubCaptainの持つ役職紹介メソッドintroducePosition()を、Captainでオーバーライドしているからです。
+		// CaptainはSubCaptainの持つ役職紹介メソッドintroducePosition()をオーバーライドしているからです。
 		
 		/**
 		 * スーパークラスで定義されたメソッドの利用
