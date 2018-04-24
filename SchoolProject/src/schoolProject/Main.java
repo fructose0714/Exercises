@@ -6,96 +6,96 @@ public class Main {
 
 	public static void main(String[] args) {
 		/**
-		 * �R���X�g���N�^�̃I�[�o�[���[�h�̌���
+		 * コンストラクタのオーバーロードの効果
 		 */
-		// Student�N���X��`���Ă݂āA�ȉ����l���Ă��������B
+		// Studentクラスを覗いてみて、以下を考えてください。
 		
-		// �������ɏ������Ȃ����k�𐶐��B
-		Student mobu = new Student("�r�����Ԏq", 1, 'A');
+		// 部活動に所属しない生徒を生成。
+		Student mobu = new Student("喪舞もぶ子", 1, 'A');
 		mobu.selfIntroduction();
 		
-		// �������ɏ������鐶�k�𐶐��B
-		Student niko = new Student("���V�ɂ�", 1, 'B', "�A�C�h����");
+		// 部活動に所属する生徒を生成。
+		Student niko = new Student("矢澤にこ", 1, 'B', "アイドル部");
 		niko.selfIntroduction();		
 		
-		// �ƁA�ȏ�̂悤�ɁA�����̐��ɉ����ăC���X�^���X�𐶐����邱�Ƃ��ł��܂��ˁB
-		// �f�t�H���g�R���X�g���N�^���u����͒�`���Ȃ��������Łv�ȉ��̂悤�Ɂu�������̐��k�v����������Ȃ��悤�ɂȂ��Ă��܂��B
+		// と、以上のように、引数の数に応じてインスタンスを生成することができますね。
+		// デフォルトコンストラクタを「今回は定義しないおかげで」以下のように「名無しの生徒」が生成されないようになっています。
 		// Student nanashi = new Student();
 		
 		
 		/**
-		 * �X�[�p�[�N���X�Œ�`�����R���X�g���N�^���T�u�N���X�Ŏg������
+		 * スーパークラスで定義したコンストラクタをサブクラスで使うこと
 		 */
-		// Accountant, SubCaptain, Captain�N���X��`���āA�ȉ����l���Ă��������B
+		// Accountant, SubCaptain, Captainクラスを覗いて、以下を考えてください。
 		
-		// ��v�W
-		Accountant pana = new Accountant("����ԗz", 1, 'B', "�A�C�h����");
-		// ������
-		SubCaptain umi = new SubCaptain("���c�C��", 2, 'A', "�A�C�h����");
-		// ����
-		Captain hono = new Captain("�����T��", 2, 'A', "�A�C�h����");
-		// �ƁA�ȏ�̂悤�ɁA�X�[�p�[�N���X�Œ�`�����A����4�����̃R���X�g���N�^�́A�T�u�N���X�ł�������g����錾���Ă���̂ŁA�g���Ă܂��ˁB
-		// �eAccountant, SubCaptain, Captain��`���Ă���������Ƃ킩��܂����A
-		// 3�����̃R���X�g���N�^���`���Ă��Ȃ��̂ŁA�ȉ��̓G���[�ɂȂ�܂��B
-		// �܂�A�������ɏ������Ȃ����k�́A��v�W�E�������E�����Ƃ��Đ����ł��Ȃ��Ƃ������Ƃł��B
-		// Accountant rin = new Accountant("����z", 1 'B');
+		// 会計係
+		Accountant pana = new Accountant("小泉花陽", 1, 'B', "アイドル部");
+		// 副部長
+		SubCaptain umi = new SubCaptain("園田海未", 2, 'A', "アイドル部");
+		// 部長
+		Captain hono = new Captain("高坂穂乃果", 2, 'A', "アイドル部");
+		// と、以上のように、スーパークラスで定義した、特に4引数のコンストラクタは、サブクラスでもそれを使えと宣言しているので、使えてますね。
+		// 各Accountant, SubCaptain, Captainを覗いていただけるとわかりますが、
+		// 3引数のコンストラクタを定義していないので、以下はエラーになります。
+		// つまり、部活動に所属しない生徒は、会計係・副部長・部長として生成できないということです。
+		// Accountant rin = new Accountant("星空凛", 1 'B');
 		
 		/**
-		 * ���ȏЉ�ɂ���(�I�[�o�[���C�h)
+		 * 自己紹介について(オーバーライド)
 		 */
 		pana.selfIntroduction();
 		umi.selfIntroduction();
 		hono.selfIntroduction();
-		// ���s���Ă݂�Ƃ킩��܂����Aumi��hono�́A���g�̖�E�����ȏЉ�Ő錾���܂��B
-		// �����Student�̎����ȏЉ�̃��\�b�hselfIntroduction()���ASubCaptain�ŃI�[�o�[���C�h���Ă��邩��ł���A
-		// ���������u���͕������ł��I�v�ƌ����̂ɑ΂��āA�����́u���͕����ł��I�v�ƌ����悤�ɂȂ��Ă���̂́A
-		// Captain��SubCaptain�̎���E�Љ�\�b�hintroducePosition()���ACaptain�ŃI�[�o�[���C�h���Ă��邩��ł��B
+		// 実行してみるとわかりますが、umiとhonoは、自身の役職を自己紹介で宣言します。
+		// それはStudentの持つ自己紹介のメソッドselfIntroduction()を、SubCaptainでオーバーライドしているからであり、
+		// 副部長が「私は副部長です！」と言うのに対して、部長は「私は部長です！」と言うようになっているのは、
+		// CaptainはSubCaptainの持つ役職紹介メソッドintroducePosition()を、Captainでオーバーライドしているからです。
 		
 		/**
-		 * �X�[�p�[�N���X�Œ�`���ꂽ���\�b�h�̗��p
+		 * スーパークラスで定義されたメソッドの利用
 		 */
-		// SubCaptain���A���̃T�u�N���X�ł���Captain���A��l�Ƃ������v�旧�Ă��s�����Ƃ��ł��܂��B
+		// SubCaptainも、そのサブクラスであるCaptainも、二人とも活動計画立案を行うことができます。
 		umi.katsudouKeikakuRitsuan();
 		hono.katsudouKeikakuRitsuan();
 		
 		/**
-		 * �ޕ��葱���ɂ��āi���̈�����Student�^�ł��邱�ƁA�Ђ��Ă̓X�[�p�[�N���X�̕ϐ����T�u�N���X�̃I�u�W�F�N�g���������Ƃ��ł��邱�Ƃɂ��āj
+		 * 退部手続きについて（その引数がStudent型であること、ひいてはスーパークラスの変数がサブクラスのオブジェクトを扱うことができることについて）
 		 */
-		// Captain�̎����\�b�htaibuTetsuduki�̈����́AStudent�^�ł��ˁE�E�E
+		// Captainの持つメソッドtaibuTetsudukiの引数は、Student型ですね・・・
 		
-		// Student�^�ł���niko�̑ޕ��葱���͓��R�\�ł��B�B
+		// Student型であるnikoの退部手続きは当然可能です。。
 		hono.taibuTetsuduki(niko);
 		
-		// ���������i�c�O�Ȃ���j�ޕ����邱�Ƃ�����܂��I
-		// SubCaptain��Student�̃T�u�N���X�Ȃ̂ŁA�ϐ�umi��taibuTetsuduki�̈����ɂ��邱�Ƃ��ł��܂��B
-		// umi��Student�^����Ȃ��̂ɂȂ�ŁH�ƌ���Ȃ��ł��������B
-		// �J��Ԃ��ɂȂ�܂����ASubCaptain��Student�̃T�u�N���X�Ȃ̂ŁAStudent�^�̕ϐ��ň������Ƃ��ł���̂ł��B
+		// 副部長も（残念ながら）退部することがあります！
+		// SubCaptainはStudentのサブクラスなので、変数umiもtaibuTetsudukiの引数にすることができます。
+		// umiはStudent型じゃないのになんで？と言わないでください。
+		// 繰り返しになりますが、SubCaptainはStudentのサブクラスなので、Student型の変数で扱うことができるのです。
 		hono.taibuTetsuduki(umi);
 		
 		/**
-		 * �C���^�[�t�F�[�X�̎���
+		 * インターフェースの実装
 		 */
-		// IAccountable�C���^�[�t�F�[�X��`���āA�ȉ����l���Ă�������
+		// IAccountableインターフェースを覗いて、以下を考えてください
 		pana.account();
 		hono.account();
-		// IAccountable�C���^�[�t�F�[�X�����������A��v�W�ƕ����́A��v��Ƃ��s�����Ƃ��ł��܂��B
+		// IAccountableインターフェースを実装した、会計係と部長は、会計作業を行うことができます。
 		
 		/**
-		 * ��v�č��ɂ��āi�����̌^�ɃC���^�[�t�F�[�X�������Ƃ̈Ӗ��j
+		 * 会計監査について（引数の型にインターフェースを持つことの意味）
 		 */
-		// ��ԉ��Œ�`����Ă��郁�\�b�hkaikeiKansa�����Ȃ���A�l���Ă��������B
+		// 一番下で定義されているメソッドkaikeiKansaを見ながら、考えてください。
 		
-		// �ϐ�pana�͉�v�W�Ȃ̂ŁA��������v�č��̑ΏۂƂł��܂��B
+		// 変数panaは会計係なので、もちろん会計監査の対象とできます。
 		kaikeiKansa(pana);
-		// Captain��IAccountable�C���^�[�t�F�[�X�����������N���X�Ȃ̂ŁA�ϐ�hono����v�č��̑ΏۂƂł��܂��I
+		// CaptainはIAccountableインターフェースを実装したクラスなので、変数honoも会計監査の対象とできます！
 		kaikeiKansa(hono);
-		// ���̂������Ƃ̂Ȃ��C���^�[�t�F�[�X�i���ۃN���X�j��ϐ��̌^�ɂ���͕̂s�v�c��������܂��񂪁A
-		// �ȏ�̂悤�Ȃ��Ƃ��ł���̂����ꂵ���̂ł��B
+		// 実体を持つことのないインターフェース（抽象クラス）を変数の型にするのは不思議かもしれませんが、
+		// 以上のようなことができるのがうれしいのです。
 	}
 	
-	// �C���^�[�t�F�[�X�������̌^�Ƃ��邱�ƂŁA�u��v��Ƃ��s�����Ƃ̂ł���l�v�������Ɏ��A�Ƃ����\�����ł��Ă���B
-	// ���̈����̌^��Accountant�ɂ��Ă��܂��ƁA��������v�č��̑Ώۂɂł��Ȃ��Ȃ��Ă��܂����Ƃɒ��ӂ��Ă��������I
+	// インターフェースを引数の型とすることで、「会計作業を行うことのできる人」を引数に取る、という表現ができている。
+	// この引数の型をAccountantにしてしまうと、部長が会計監査の対象にできなくなってしまうことに注意してください！
 	public static void kaikeiKansa(IAccountable a) {
-		// ��v�č�
+		// 会計監査
 	}
 }
