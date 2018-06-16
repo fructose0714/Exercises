@@ -19,7 +19,7 @@
     * css/datatable.min.css
     * js/datatable.js
     * js/datatable.jquery.js  
-3. ダウンロードしてきたjavascript, cssのプロジェクトへの配置
+3. ダウンロードしてきたjavascript, cssのプロジェクトへの配置  
 Spring+Thymeleafでは、以下の場所に配置するといい感じですね。存在しないフォルダは作成してください。
 <img src="https://raw.github.com/wiki/fructose0714/Exercises/Images/paging/js_css_path.png" width="240">
 
