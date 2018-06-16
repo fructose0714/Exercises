@@ -28,13 +28,49 @@ Spring+Thymeleafでは、以下の場所に配置するといい感じですね�
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" type="text/css" th:href="@{/css/datatable.min.css}" media="screen">
-<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
-<script type="text/javascript" th:src="@{/js/datatable.js}"></script>
-<script type="text/javascript" th:src="@{/js/datatable.jquery.js}"></script>
-<meta charset="UTF-8" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/datatable.min.css}" media="screen">
+  <script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/datatable.js}"></script>
+  <script type="text/javascript" th:src="@{/js/datatable.jquery.js}"></script>
+  <meta charset="UTF-8" />
 </head>
 ```
 これでプラグインが使えるようになりました。
 
 ### 3.実際に使用する
+このプロジェクトの[hello.html](https://github.com/fructose0714/Exercises/blob/master/demo/src/main/resources/templates/hello.html)を合せて参照してください。  
+例えば以下のように、Thymeleafの構文を用いて要素が繰り返されるtableがあるとします。  
+（${members}にコントローラから何が渡されるかは、このプロジェクトの[HelloController.java](https://github.com/fructose0714/Exercises/blob/master/demo/src/main/java/com/example/demo/controller/HelloController.java)を参照してください。）
+```html
+  <table id="member-table">
+    <tHead>
+	  <tr>
+	    <th>番号</th>
+		 <th>名前</th>
+	  </tr>
+    </tHead>
+    <tbody>
+	  <tr th:each="m: ${members}">
+		<td th:text="${m.number}"></td>
+		<td th:text="${m.name}"></td>
+	  </tr>
+    </tbody>
+  </table>
+  <div id="paging-first-datatable"></div>
+```
+最終行にあるdivタグは、ページの番号を表示するやつ、こんなの
+<img src="https://raw.github.com/wiki/fructose0714/Exercises/Images/paging/paging_bar.png" width="240">
+の置き場所です。必要に応じてこのdivタグは、自分が表示したいところに移動してください。
+
+このtableにページングを実装しましょう。以下のjavascriptコードを、bodyの ___最下部___ に記述してください。
+```html
+<script>
+$('#member-table').datatable({
+    pageSize: 5,
+    sort: [false, false],
+    filters: [false, false],
+    pagingDivSelector: "#paging-first-datatable"
+});
+</script>
+</body>
+```
