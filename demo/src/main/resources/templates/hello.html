@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" th:href="@{/css/datatable.min.css}" media="screen">
+<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/datatable.js}"></script>
+<script type="text/javascript" th:src="@{/js/datatable.jquery.js}"></script>
+<meta charset="UTF-8" />
+<title>thymeleafのテスト</title>
+</head>
+<body>
+  <table id="member-table">
+    <tHead>
+	  <tr>
+	    <th>番号</th>
+		<th>名前</th>
+	  </tr>
+    </tHead>
+    <tbody>
+	  <tr th:each="m: ${members}">
+		<td th:text="${m.number}"></td>
+		<td th:text="${m.name}"></td>
+	  </tr>
+	</tbody>
+  </table>
+  <div id="paging-first-datatable"></div>
+<script>
+$('#member-table').datatable({
+    pageSize: 5,
+    sort: [false, false],
+    filters: [false, false],
+    pagingDivSelector: "#paging-first-datatable"
+});
+</script>
+</body>
+</html>
