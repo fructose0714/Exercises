@@ -3,6 +3,7 @@
 * jQueryなど、どんな手を使ってもよいのなら、参考にしてください。
 * tableタグに囲まれたものに対するページングの実装です。
 * 「jQuery Datatable (http://holt59.github.io/datatable/ )」というプラグインを今回は使用してみます。
+* jQueryとjQuery Datatableプラグインのダウンロードの手順が面倒？だったら、このプロジェクトに入っているものをダウンロードして使ってもいいんじゃないでしょうか。
 
 ## 導入の具体的な手順
 ### 1.jQueryとjQuery Datatableプラグインのダウンロードと配置
