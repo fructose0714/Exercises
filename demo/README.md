@@ -58,8 +58,8 @@ Spring+Thymeleafでは、以下の場所に配置するといい感じですね�
   </table>
   <div id="paging-first-datatable"></div>
 ```
-最終行にあるdivタグは、ページの番号を表示するやつ、こんなの
-<img src="https://raw.github.com/wiki/fructose0714/Exercises/Images/paging/paging_bar.png" width="240">
+最終行にあるdivタグは、ページの番号を表示するやつ、こんなの  
+<img src="https://raw.github.com/wiki/fructose0714/Exercises/Images/paging/paging_bar.png" width="160">
 の置き場所です。必要に応じてこのdivタグは、自分が表示したいところに移動してください。
 
 このtableにページングを実装しましょう。以下のjavascriptコードを、bodyの ___最下部___ に記述してください。
